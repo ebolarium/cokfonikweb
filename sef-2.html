@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-tr="Koro Şefi - Adana Çokfonik Çoksesli Korosu" data-en="Our Conductor - Adana Çokfonik Polyphonic Choir">Koro Şefi - Adana Çokfonik Çoksesli Korosu</title>
+    <meta name="description" content="Semin Süeda Sirel Çölcü - Çokfonik koromuzun deneyimli ve yetenekli şefi hakkında bilgi">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/gif" href="images/cropped-cok-fonik-logo-4.gif">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Modular Navbar CSS -->
+    <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+    
+    <style>
+        :root {
+            --primary-color: #e08611;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --success-color: #27ae60;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(224, 134, 17, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background-color: rgba(224, 134, 17, 0.15);
+        }
+
+        .language-switcher {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            padding: 0.4rem 1rem !important;
+            border-radius: 25px;
+            margin-left: 1rem;
+        }
+
+        .language-switcher:hover {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 76px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Conductor Bio Section */
+        .conductor-bio {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .conductor-image {
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .conductor-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .conductor-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .conductor-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bio-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+
+        .bio-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .bio-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .achievement-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .achievement-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+            padding-left: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -13px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -13px;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .timeline-year {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 4rem 0;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .conductor-name {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding-left: 4rem;
+                padding-right: 0;
+            }
+            
+            .timeline-dot,
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+                right: auto;
+            }
+            
+            .navbar-nav .nav-link {
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .achievement-card,
+        .timeline-item {
+            animation: slideInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in" data-tr="KORO ŞEFİMİZ" data-en="OUR CONDUCTOR">KORO ŞEFİMİZ</h1>
+            <p class="page-subtitle fade-in" data-tr="Deneyimli ve yetenekli şefimiz koromuzu profesyonel bir yaklaşımla yönetiyor" data-en="Our experienced and talented conductor leads our choir with a professional approach">Deneyimli ve yetenekli şefimiz koromuzu profesyonel bir yaklaşımla yönetiyor</p>
+        </div>
+    </section>
+
+    <!-- Conductor Bio Section -->
+    <section class="conductor-bio">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="images/Sueda-Sirel-Colcu.jpeg" alt="Semin Süeda Sirel Çölcü" class="conductor-image fade-in">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="conductor-name fade-in">SEMİN SÜEDA SİREL ÇÖLCÜ</h2>
+                    <p class="conductor-title fade-in" data-tr="KORO ŞEFİ VE ÖĞRETİM GÖREVLİSİ" data-en="CHOIR CONDUCTOR AND LECTURER">KORO ŞEFİ VE ÖĞRETİM GÖREVLİSİ</p>
+                    
+                    <div id="turkish-bio" class="bio-content fade-in">
+                        <p><strong>1980 yılında İzmir'de doğan</strong> Semin Süeda Sirel Çölcü müzik eğitimine sekiz yaşında piyano ve solfej eğitimiyle başlamış, ilk ve orta öğrenimini tamamladıktan sonra 1994 yılında İzmir Işılay Saygın Anadolu Güzel Sanatlar Lisesi'nde öğrenim görmeye hak kazanmıştır.</p>
+                        
+                        <p>1997 yılında Dokuz Eylül Üniversitesi Devlet Konservatuvarı Sahne Sanatları Bölümü Opera Şan Anasanat Dalının açmış olduğu kursiyerlik sınavını kazanarak yarı zamanlı olarak <strong>Zafer Yavçan ile şan, Mustafa Suyolcu ile solfej ve müzik teorisi</strong> çalışmalarını sürdürmüştür.</p>
+                        
+                        <p>1998 yılında Çukurova Üniversitesi Devlet Konservatuvarı Sahne Sanatları Bölümü Opera-Şan Anasanat dalının açtığı lisans sınavında başarılı olarak <strong>Klavdia Atanassova'nın öğrencisi</strong> olmaya hak kazanmıştır.</p>
+                        
+                        <p>2001 yılından itibaren şan çalışmalarını <strong>Prof. Dr. Chavdar Hadjiev</strong> ile sürdüren Sirel bu zaman zarfında birçok solo konser vermiş; Ç.Ü. Devlet Konservatuvarı korosunda korist ve solist olarak, Ankara'da düzenlenen Polifonik Korolar Şenliği etkinliklerinde birçok kez sololu koro yapıtlarında solist olarak görev yapmıştır.</p>
+                        
+                        <p><strong>2022 yılından beri Çokfonik'in şefliğini üstlenmektedir.</strong> Halen Ç.Ü. Devlet Konservatuvarı Opera Şan Ana Sanat Dalı'nda öğretim görevlisi olarak çalışmalarını sürdürmektedir.</p>
+                    </div>
+                    
+                    <div id="english-bio" class="bio-content fade-in" style="display: none;">
+                        <p><strong>Born in İzmir in 1980</strong>, Semin Süeda Sirel Çölcü began her musical education at the age of eight with piano and solfege training. After completing her primary and secondary education, she earned the right to study at İzmir Işılay Saygın Anatolian Fine Arts High School in 1994.</p>
+                        
+                        <p>In 1997, she passed the part-time student examination for the Opera Voice Main Art Branch of the Performing Arts Department at Dokuz Eylül University State Conservatory, continuing her studies in <strong>voice with Zafer Yavçan, and solfege and music theory with Mustafa Suyolcu</strong>.</p>
+                        
+                        <p>In 1998, she successfully passed the undergraduate examination for the Opera-Voice Main Art Branch of the Performing Arts Department at Çukurova University State Conservatory, earning the right to become a <strong>student of Klavdia Atanassova</strong>.</p>
+                        
+                        <p>Since 2001, she has continued her vocal studies with <strong>Prof. Dr. Chavdar Hadjiev</strong>. During this time, she has given many solo concerts and served as both a choir member and soloist at Ç.Ü. State Conservatory choir, and as a soloist in accompanied choral works at various Polyphonic Choirs Festival events organized in Ankara.</p>
+                        
+                        <p><strong>She has been serving as the conductor of Çokfonik since 2022.</strong> She currently continues her work as a lecturer at Ç.Ü. State Conservatory Opera Voice Main Art Department.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-tr="BAŞARILAR VE ÖDÜLLERİ" data-en="ACHIEVEMENTS AND AWARDS">BAŞARILAR VE ÖDÜLLERİ</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="achievement-card">
+                        <i class="fas fa-trophy achievement-icon"></i>
+                        <h4 class="achievement-title" data-tr="Çocuk Şarkısı Yorumlamada Başarı Ödülü" data-en="Success Award in Children's Song Interpretation">Çocuk Şarkısı Yorumlamada Başarı Ödülü</h4>
+                        <p class="achievement-desc" data-tr="2002 yılında 7. Türkiye Polifonik Korolar Şenliği'nde aldığı prestijli ödül" data-en="Prestigious award received at the 7th Turkey Polyphonic Choirs Festival in 2002">2002 yılında 7. Türkiye Polifonik Korolar Şenliği'nde aldığı prestijli ödül</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="achievement-card">
+                        <i class="fas fa-graduation-cap achievement-icon"></i>
+                        <h4 class="achievement-title" data-tr="Yüksek Lisans Derecesi" data-en="Master's Degree">Yüksek Lisans Derecesi</h4>
+                        <p class="achievement-desc" data-tr="2005 yılında Çukurova Üniversitesi Devlet Konservatuvarı'ndan yüksek lisans derecesi" data-en="Master's degree from Çukurova University State Conservatory in 2005">2005 yılında Çukurova Üniversitesi Devlet Konservatuvarı'ndan yüksek lisans derecesi</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="achievement-card">
+                        <i class="fas fa-music achievement-icon"></i>
+                        <h4 class="achievement-title" data-tr="Uluslararası Konserler" data-en="International Concerts">Uluslararası Konserler</h4>
+                        <p class="achievement-desc" data-tr="Yurtiçi ve yurtdışında solist ve korist olarak verdiği çok sayıda konser" data-en="Numerous concerts performed as soloist and choir member both domestically and internationally">Yurtiçi ve yurtdışında solist ve korist olarak verdiği çok sayıda konser</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="achievement-card">
+                        <i class="fas fa-chalkboard-teacher achievement-icon"></i>
+                        <h4 class="achievement-title" data-tr="Öğretim Görevlisi" data-en="Academic Lecturer">Öğretim Görevlisi</h4>
+                        <p class="achievement-desc" data-tr="Çukurova Üniversitesi Devlet Konservatuvarı'nda Opera Şan Ana Sanat Dalında görev" data-en="Serving at Çukurova University State Conservatory Opera Voice Main Art Department">Çukurova Üniversitesi Devlet Konservatuvarı'nda Opera Şan Ana Sanat Dalında görev</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="achievement-card">
+                        <i class="fas fa-users achievement-icon"></i>
+                        <h4 class="achievement-title" data-tr="Çocuk Korosu Şefliği" data-en="Children's Choir Conductor">Çocuk Korosu Şefliği</h4>
+                        <p class="achievement-desc" data-tr="2001-2002 yılları arasında Adana Polifonik Korolar Derneği Çocuk Korosu şefliği" data-en="Conducted Adana Polyphonic Choirs Association Children's Choir from 2001-2002">2001-2002 yılları arasında Adana Polifonik Korolar Derneği Çocuk Korosu şefliği</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="achievement-card">
+                        <i class="fas fa-star achievement-icon"></i>
+                        <h4 class="achievement-title" data-tr="İkincilik Derecesi" data-en="Second Place Graduate">İkincilik Derecesi</h4>
+                        <p class="achievement-desc" data-tr="Çukurova Üniversitesi Devlet Konservatuvarı'ndan ikincilik derecesiyle mezuniyet" data-en="Graduated second place from Çukurova University State Conservatory">Çukurova Üniversitesi Devlet Konservatuvarı'ndan ikincilik derecesiyle mezuniyet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-tr="EĞİTİM VE KARİYER TARİHÇESİ" data-en="EDUCATION AND CAREER TIMELINE">EĞİTİM VE KARİYER TARİHÇESİ</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1988</div>
+                        <div class="timeline-desc" data-tr="8 yaşında piyano ve solfej eğitimine başladı" data-en="Started piano and solfege education at age 8">8 yaşında piyano ve solfej eğitimine başladı</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1994</div>
+                        <div class="timeline-desc" data-tr="İzmir Işılay Saygın Anadolu Güzel Sanatlar Lisesi'ne başladı" data-en="Started at İzmir Işılay Saygın Anatolian Fine Arts High School">İzmir Işılay Saygın Anadolu Güzel Sanatlar Lisesi'ne başladı</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1997</div>
+                        <div class="timeline-desc" data-tr="Dokuz Eylül Üniversitesi Devlet Konservatuvarı kursiyerlik sınavını kazandı" data-en="Passed the part-time student exam at Dokuz Eylül University State Conservatory">Dokuz Eylül Üniversitesi Devlet Konservatuvarı kursiyerlik sınavını kazandı</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1998</div>
+                        <div class="timeline-desc" data-tr="Çukurova Üniversitesi Devlet Konservatuvarı lisans eğitimine başladı" data-en="Started undergraduate education at Çukurova University State Conservatory">Çukurova Üniversitesi Devlet Konservatuvarı lisans eğitimine başladı</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2001-2002</div>
+                        <div class="timeline-desc" data-tr="Adana Polifonik Korolar Derneği Çocuk Korosu şefliği görevi" data-en="Served as conductor of Adana Polyphonic Choirs Association Children's Choir">Adana Polifonik Korolar Derneği Çocuk Korosu şefliği görevi</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2002</div>
+                        <div class="timeline-desc" data-tr="7. Türkiye Polifonik Korolar Şenliği'nde ödül aldı" data-en="Received award at 7th Turkey Polyphonic Choirs Festival">7. Türkiye Polifonik Korolar Şenliği'nde ödül aldı</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2005</div>
+                        <div class="timeline-desc" data-tr="Yüksek lisans eğitimini tamamladı" data-en="Completed master's degree education">Yüksek lisans eğitimini tamamladı</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-desc" data-tr="Çokfonik korosunun şefliğini üstlendi" data-en="Became conductor of Çokfonik choir">Çokfonik korosunun şefliğini üstlendi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <p class="quote-text fade-in" data-tr="&quot;Müzik, ruhların en derin duygularını ifade etmenin en güçlü yoludur&quot;" data-en="&quot;Music is the most powerful way to express the deepest emotions of souls&quot;">"Müzik, ruhların en derin duygularını ifade etmenin en güçlü yoludur"</p>
+            <p class="quote-author fade-in">- Semin Süeda Sirel Çölcü</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 Adana Çokfonik Çoksesli Korosu. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modular Navbar JavaScript -->
+    <script src="js/navbar-loader.js"></script>
+    
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'tr';
+        
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'tr' ? 'en' : 'tr';
+            updateContent();
+            updateLanguageButton();
+        }
+        
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-tr][data-en]');
+            elements.forEach(element => {
+                const text = currentLanguage === 'tr' ? element.getAttribute('data-tr') : element.getAttribute('data-en');
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            // Toggle bio content
+            const turkishBio = document.getElementById('turkish-bio');
+            const englishBio = document.getElementById('english-bio');
+            
+            if (currentLanguage === 'tr') {
+                turkishBio.style.display = 'block';
+                englishBio.style.display = 'none';
+                document.documentElement.lang = 'tr';
+            } else {
+                turkishBio.style.display = 'none';
+                englishBio.style.display = 'block';
+                document.documentElement.lang = 'en';
+            }
+        }
+        
+        function updateLanguageButton() {
+            const button = document.getElementById('languageToggle');
+            button.textContent = currentLanguage === 'tr' ? 'EN' : 'TR';
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

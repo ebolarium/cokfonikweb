@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Adana Çokfonik Çoksesli Korosu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e08611;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --light-gray: #f8f9fa;
+            --dark-gray: #6c757d;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-color);
+            background-color: var(--white);
+        }
+
+
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIiLz48L2c+PC9zdmc+') repeat;
+            opacity: 0.3;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-control {
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(224, 134, 17, 0.25);
+            outline: none;
+        }
+
+        .form-control.textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(224, 134, 17, 0.3);
+        }
+
+
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: var(--success-color);
+            color: var(--white);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background: #dc3545;
+            color: var(--white);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="fade-in-up">İletişim</h1>
+                <p class="fade-in-up" style="animation-delay: 0.2s;">Koromuza katılmak veya sorularınız için bizimle iletişime geçin</p>
+            </div>
+        </section>
+
+
+
+        <!-- Contact Form -->
+        <section class="contact-form" style="padding: 60px 0;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="form-card fade-in-up">
+                            <h2 class="form-title">Mesaj Gönder</h2>
+                            
+                            <div class="success-message" id="successMessage">
+                                <i class="fas fa-check-circle me-2"></i>Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+                            </div>
+                            
+                            <div class="error-message" id="errorMessage">
+                                <i class="fas fa-exclamation-circle me-2"></i>Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.
+                            </div>
+                            
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstName">Ad *</label>
+                                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="lastName">Soyad *</label>
+                                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="email">E-posta *</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="phone">Telefon</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="subject">Konu *</label>
+                                    <select class="form-control" id="subject" name="subject" required>
+                                        <option value="">Konu seçiniz</option>
+                                        <option value="katilim">Koroya Katılım</option>
+                                        <option value="etkinlik">Etkinlik ve Konser Bilgileri</option>
+                                        <option value="isbirligi">İşbirliği Önerileri</option>
+                                        <option value="basin">Basın ve Medya</option>
+                                        <option value="diger">Diğer</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Mesajınız *</label>
+                                    <textarea class="form-control textarea" id="message" name="message" required 
+                                              placeholder="Lütfen mesajınızı buraya yazın..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-paper-plane me-2"></i>Mesajı Gönder
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Navbar Loader -->
+    <script src="js/navbar-loader.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scroll animation for elements coming into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+                showMessage('error', 'Lütfen zorunlu alanları doldurun.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showMessage('error', 'Lütfen geçerli bir e-posta adresi girin.');
+                return;
+            }
+            
+            // Simulate form submission (replace with actual backend)
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                showMessage('success', 'Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        function showMessage(type, message) {
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Hide both messages first
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            if (type === 'success') {
+                successMsg.innerHTML = `<i class="fas fa-check-circle me-2"></i>${message}`;
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 5000);
+            } else {
+                errorMsg.innerHTML = `<i class="fas fa-exclamation-circle me-2"></i>${message}`;
+                errorMsg.style.display = 'block';
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Scroll to message
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+
+
+
+
+
+
+        // Form field focus effects
+        document.querySelectorAll('.form-control').forEach(field => {
+            field.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            field.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html> 

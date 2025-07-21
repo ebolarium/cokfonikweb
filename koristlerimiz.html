@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-tr="Koristlerimiz - Adana Çokfonik Çoksesli Korosu" data-en="Our Choir Members - Adana Çokfonik Polyphonic Choir">Koristlerimiz - Adana Çokfonik Çoksesli Korosu</title>
+    <meta name="description" content="Çokfonik korosu üyelerimiz - soprano, alto, tenor ve bas ses gruplarından yetenekli koristlerimiz">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/gif" href="images/cropped-cok-fonik-logo-4.gif">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Modular Navbar CSS -->
+    <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+    
+    <style>
+        :root {
+            --primary-color: #e08611;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --soprano-color: #e74c3c;
+            --alto-color: #9b59b6;
+            --tenor-color: #3498db;
+            --bass-color: #27ae60;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(224, 134, 17, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background-color: rgba(224, 134, 17, 0.15);
+        }
+
+        .language-switcher {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            padding: 0.4rem 1rem !important;
+            border-radius: 25px;
+            margin-left: 1rem;
+        }
+
+        .language-switcher:hover {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 76px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Voice Type Filters */
+        .filter-section {
+            padding: 3rem 0;
+            background: var(--white);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--text-light);
+            background: transparent;
+            color: var(--text-dark);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(224, 134, 17, 0.3);
+        }
+
+        .filter-btn.soprano {
+            border-color: var(--soprano-color);
+        }
+
+        .filter-btn.soprano:hover,
+        .filter-btn.soprano.active {
+            background: var(--soprano-color);
+            border-color: var(--soprano-color);
+        }
+
+        .filter-btn.alto {
+            border-color: var(--alto-color);
+        }
+
+        .filter-btn.alto:hover,
+        .filter-btn.alto.active {
+            background: var(--alto-color);
+            border-color: var(--alto-color);
+        }
+
+        .filter-btn.tenor {
+            border-color: var(--tenor-color);
+        }
+
+        .filter-btn.tenor:hover,
+        .filter-btn.tenor.active {
+            background: var(--tenor-color);
+            border-color: var(--tenor-color);
+        }
+
+        .filter-btn.bass {
+            border-color: var(--bass-color);
+        }
+
+        .filter-btn.bass:hover,
+        .filter-btn.bass.active {
+            background: var(--bass-color);
+            border-color: var(--bass-color);
+        }
+
+        /* Member Gallery */
+        .members-section {
+            padding: 2rem 0 5rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .member-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .member-voice {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            color: var(--white);
+            display: inline-block;
+        }
+
+        .voice-soprano {
+            background: var(--soprano-color);
+        }
+
+        .voice-alto {
+            background: var(--alto-color);
+        }
+
+        .voice-tenor {
+            background: var(--tenor-color);
+        }
+
+        .voice-bass {
+            background: var(--bass-color);
+        }
+
+        /* Voice Type Sections */
+        .voice-section {
+            margin-bottom: 4rem;
+        }
+
+        .voice-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .voice-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .voice-title.soprano::after {
+            background: var(--soprano-color);
+        }
+
+        .voice-title.alto::after {
+            background: var(--alto-color);
+        }
+
+        .voice-title.tenor::after {
+            background: var(--tenor-color);
+        }
+
+        .voice-title.bass::after {
+            background: var(--bass-color);
+        }
+
+        /* Stats */
+        .stats-section {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            margin-bottom: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .soprano .stat-number {
+            color: var(--soprano-color);
+        }
+
+        .alto .stat-number {
+            color: var(--alto-color);
+        }
+
+        .tenor .stat-number {
+            color: var(--tenor-color);
+        }
+
+        .bass .stat-number {
+            color: var(--bass-color);
+        }
+
+        /* Modal */
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 200px;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .navbar-nav .nav-link {
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .member-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in" data-tr="KORİSTLERİMİZ" data-en="OUR CHOIR MEMBERS">KORİSTLERİMİZ</h1>
+            <p class="page-subtitle fade-in" data-tr="Yetenekli ve tutkulu müzik severlerin oluşturduğu büyük aile" data-en="A big family of talented and passionate music lovers">Yetenekli ve tutkulu müzik severlerin oluşturduğu büyük aile</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" data-tr="TÜM ÜYELERİMİZ" data-en="ALL MEMBERS">TÜM ÜYELERİMİZ</button>
+                <button class="filter-btn soprano" data-filter="soprano" data-tr="SOPRANO" data-en="SOPRANO">SOPRANO</button>
+                <button class="filter-btn alto" data-filter="alto" data-tr="ALTO" data-en="ALTO">ALTO</button>
+                <button class="filter-btn tenor" data-filter="tenor" data-tr="TENOR" data-en="TENOR">TENOR</button>
+                <button class="filter-btn bass" data-filter="bass" data-tr="BAS" data-en="BASS">BAS</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section class="members-section">
+        <div class="container">
+            <div class="members-grid" id="membersGrid">
+                <!-- Soprano Members -->
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Ayşegül Kalağoğlu', 'Soprano', 'choir_member_images/Soprano/Ayşegül_Kalağoğlu.jpeg')">
+                    <img src="choir_member_images/Soprano/Ayşegül_Kalağoğlu.jpeg" alt="Ayşegül Kalağoğlu" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Ayşegül Kalağoğlu</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Bengüsu Çiftçi', 'Soprano', 'choir_member_images/Soprano/Bengüsu_Çiftçi.jpg')">
+                    <img src="choir_member_images/Soprano/Bengüsu_Çiftçi.jpg" alt="Bengüsu Çiftçi" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Bengüsu Çiftçi</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Buse Gül Dönderici', 'Soprano', 'choir_member_images/Soprano/Buse_Gül_Dönderici.jpg')">
+                    <img src="choir_member_images/Soprano/Buse_Gül_Dönderici.jpg" alt="Buse Gül Dönderici" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Buse Gül Dönderici</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Ece Naz Karataş', 'Soprano', 'choir_member_images/Soprano/Ece_Naz_Karataş.jpg')">
+                    <img src="choir_member_images/Soprano/Ece_Naz_Karataş.jpg" alt="Ece Naz Karataş" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Ece Naz Karataş</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Gökçe Güzeltürk Atıcı', 'Soprano', 'choir_member_images/Soprano/Gökçe_Güzeltürk_Atıcı.jpg')">
+                    <img src="choir_member_images/Soprano/Gökçe_Güzeltürk_Atıcı.jpg" alt="Gökçe Güzeltürk Atıcı" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Gökçe Güzeltürk Atıcı</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Gülcan Can', 'Soprano', 'choir_member_images/Soprano/Gülcan_Can.jpg')">
+                    <img src="choir_member_images/Soprano/Gülcan_Can.jpg" alt="Gülcan Can" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Gülcan Can</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('İnci Günaydın', 'Soprano', 'choir_member_images/Soprano/İnci_Günaydın.jpeg')">
+                    <img src="choir_member_images/Soprano/İnci_Günaydın.jpeg" alt="İnci Günaydın" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">İnci Günaydın</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Özge Aymelek', 'Soprano', 'choir_member_images/Soprano/Özge_Aymelek.jpg')">
+                    <img src="choir_member_images/Soprano/Özge_Aymelek.jpg" alt="Özge Aymelek" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Özge Aymelek</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Rana Rudvan', 'Soprano', 'choir_member_images/Soprano/Rana_Rudvan.jpeg')">
+                    <img src="choir_member_images/Soprano/Rana_Rudvan.jpeg" alt="Rana Rudvan" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Rana Rudvan</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Süeda Delice', 'Soprano', 'choir_member_images/Soprano/Süeda_Delice.jpg')">
+                    <img src="choir_member_images/Soprano/Süeda_Delice.jpg" alt="Süeda Delice" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Süeda Delice</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Şenel Eğilmez', 'Soprano', 'choir_member_images/Soprano/Şenel_Eğilmez.jpg')">
+                    <img src="choir_member_images/Soprano/Şenel_Eğilmez.jpg" alt="Şenel Eğilmez" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Şenel Eğilmez</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="soprano" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Tuğba Poyraz', 'Soprano', 'choir_member_images/Soprano/Tuğba_Poyraz.jpg')">
+                    <img src="choir_member_images/Soprano/Tuğba_Poyraz.jpg" alt="Tuğba Poyraz" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Tuğba Poyraz</h3>
+                        <span class="member-voice voice-soprano">Soprano</span>
+                    </div>
+                </div>
+
+                <!-- Alto Members -->
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Demet Nural Zateri', 'Alto', 'choir_member_images/Alto/Demet_NURAL_ZATERİ.jpg')">
+                    <img src="choir_member_images/Alto/Demet_NURAL_ZATERİ.jpg" alt="Demet Nural Zateri" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Demet Nural Zateri</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Didem Nebioğlu', 'Alto', 'choir_member_images/Alto/Didem_Nebioğlu.jpg')">
+                    <img src="choir_member_images/Alto/Didem_Nebioğlu.jpg" alt="Didem Nebioğlu" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Didem Nebioğlu</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Ezgi Delice', 'Alto', 'choir_member_images/Alto/Ezgi_Delice.jpg')">
+                    <img src="choir_member_images/Alto/Ezgi_Delice.jpg" alt="Ezgi Delice" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Ezgi Delice</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Gülçin Güler', 'Alto', 'choir_member_images/Alto/Gülçin_Güler.jpg')">
+                    <img src="choir_member_images/Alto/Gülçin_Güler.jpg" alt="Gülçin Güler" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Gülçin Güler</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Güliz Tekayak', 'Alto', 'choir_member_images/Alto/Güliz_Tekayak.jpg')">
+                    <img src="choir_member_images/Alto/Güliz_Tekayak.jpg" alt="Güliz Tekayak" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Güliz Tekayak</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Nihan Aytutuldu', 'Alto', 'choir_member_images/Alto/Nihan_AYTUTULDU.jpg')">
+                    <img src="choir_member_images/Alto/Nihan_AYTUTULDU.jpg" alt="Nihan Aytutuldu" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Nihan Aytutuldu</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Meltem Usta Başman', 'Alto', 'choir_member_images/Alto/Meltem_Usta_Başman.jpg')">
+                    <img src="choir_member_images/Alto/Meltem_Usta_Başman.jpg" alt="Meltem Usta Başman" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Meltem Usta Başman</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Özlem Doygun Boğa', 'Alto', 'choir_member_images/Alto/Özlem_Doygun_Boğa.jpg')">
+                    <img src="choir_member_images/Alto/Özlem_Doygun_Boğa.jpg" alt="Özlem Doygun Boğa" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Özlem Doygun Boğa</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Pınar Asker', 'Alto', 'choir_member_images/Alto/Pınar_Asker.jpg')">
+                    <img src="choir_member_images/Alto/Pınar_Asker.jpg" alt="Pınar Asker" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Pınar Asker</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="alto" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Şirin Kıracı', 'Alto', 'choir_member_images/Alto/Şirin_Kıracı.jpeg')">
+                    <img src="choir_member_images/Alto/Şirin_Kıracı.jpeg" alt="Şirin Kıracı" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Şirin Kıracı</h3>
+                        <span class="member-voice voice-alto">Alto</span>
+                    </div>
+                </div>
+
+                <!-- Tenor Members -->
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Agah Atıcı', 'Tenor', 'choir_member_images/Tenor/Agah_Atıcı.jpg')">
+                    <img src="choir_member_images/Tenor/Agah_Atıcı.jpg" alt="Agah Atıcı" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Agah Atıcı</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Armağan Acele', 'Tenor', 'choir_member_images/Tenor/Armağan_Acele.jpg')">
+                    <img src="choir_member_images/Tenor/Armağan_Acele.jpg" alt="Armağan Acele" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Armağan Acele</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Başar Atıcı', 'Tenor', 'choir_member_images/Tenor/Başar_Atıcı.jpg')">
+                    <img src="choir_member_images/Tenor/Başar_Atıcı.jpg" alt="Başar Atıcı" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Başar Atıcı</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Hasan Karataş', 'Tenor', 'choir_member_images/Tenor/Hasan_Karataş.jpg')">
+                    <img src="choir_member_images/Tenor/Hasan_Karataş.jpg" alt="Hasan Karataş" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Hasan Karataş</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Mustafa Kemal Gültekin', 'Tenor', 'choir_member_images/Tenor/Mustafa_Kemal_Gültekin.jpg')">
+                    <img src="choir_member_images/Tenor/Mustafa_Kemal_Gültekin.jpg" alt="Mustafa Kemal Gültekin" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Mustafa Kemal Gültekin</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Özgür Aytaç', 'Tenor', 'choir_member_images/Tenor/Özgür_Aytaç.jpg')">
+                    <img src="choir_member_images/Tenor/Özgür_Aytaç.jpg" alt="Özgür Aytaç" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Özgür Aytaç</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Serdar Ayhan', 'Tenor', 'choir_member_images/Tenor/Serdar_Ayhan.jpg')">
+                    <img src="choir_member_images/Tenor/Serdar_Ayhan.jpg" alt="Serdar Ayhan" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Serdar Ayhan</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="tenor" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Şaner Ahmet Şanlı', 'Tenor', 'choir_member_images/Tenor/Şaner_Ahmet_Şanlı.jpg')">
+                    <img src="choir_member_images/Tenor/Şaner_Ahmet_Şanlı.jpg" alt="Şaner Ahmet Şanlı" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Şaner Ahmet Şanlı</h3>
+                        <span class="member-voice voice-tenor">Tenor</span>
+                    </div>
+                </div>
+
+                <!-- Bass Members -->
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Ahmet Can Dağlıoğlu', 'Bas', 'choir_member_images/Bas/Ahmet_Can_Dağlıoğlu.jpg')">
+                    <img src="choir_member_images/Bas/Ahmet_Can_Dağlıoğlu.jpg" alt="Ahmet Can Dağlıoğlu" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Ahmet Can Dağlıoğlu</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Barış Boğa', 'Bas', 'choir_member_images/Bas/Barış_Boğa.jpg')">
+                    <img src="choir_member_images/Bas/Barış_Boğa.jpg" alt="Barış Boğa" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Barış Boğa</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Can Kerem Karacalıoğlu', 'Bas', 'choir_member_images/Bas/Can_Kerem_Karacalıoğlu.jpg')">
+                    <img src="choir_member_images/Bas/Can_Kerem_Karacalıoğlu.jpg" alt="Can Kerem Karacalıoğlu" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Can Kerem Karacalıoğlu</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Egemen Özden', 'Bas', 'choir_member_images/Bas/Egemen_Özden.jpg')">
+                    <img src="choir_member_images/Bas/Egemen_Özden.jpg" alt="Egemen Özden" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Egemen Özden</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Metin Kılıç', 'Bas', 'choir_member_images/Bas/Metin_Kılıç.jpg')">
+                    <img src="choir_member_images/Bas/Metin_Kılıç.jpg" alt="Metin Kılıç" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Metin Kılıç</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Onur Ateş', 'Bas', 'choir_member_images/Bas/Onur_Ateş.jpg')">
+                    <img src="choir_member_images/Bas/Onur_Ateş.jpg" alt="Onur Ateş" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Onur Ateş</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Oral Memili', 'Bas', 'choir_member_images/Bas/Oral_Memili.jpg')">
+                    <img src="choir_member_images/Bas/Oral_Memili.jpg" alt="Oral Memili" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Oral Memili</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Sadık Dibooğlu', 'Bas', 'choir_member_images/Bas/Sadık_Dibooğlu.jpg')">
+                    <img src="choir_member_images/Bas/Sadık_Dibooğlu.jpg" alt="Sadık Dibooğlu" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Sadık Dibooğlu</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Soner Boğa', 'Bas', 'choir_member_images/Bas/Soner_Boğa.jpg')">
+                    <img src="choir_member_images/Bas/Soner_Boğa.jpg" alt="Soner Boğa" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Soner Boğa</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+
+                <div class="member-card" data-voice="bass" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="showMember('Umut Işık', 'Bas', 'choir_member_images/Bas/Umut_Işık.jpg')">
+                    <img src="choir_member_images/Bas/Umut_Işık.jpg" alt="Umut Işık" class="member-image" onerror="this.src='images/pp-150x150.jpg'">
+                    <div class="member-info">
+                        <h3 class="member-name">Umut Işık</h3>
+                        <span class="member-voice voice-bass" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item soprano fade-in">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Soprano</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item alto fade-in">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Alto</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item tenor fade-in">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Tenor</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item bass fade-in">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label" data-tr="Bas" data-en="Bass">Bas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Modal -->
+    <div class="modal fade" id="memberModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="" class="modal-image">
+                    <h4 id="modalName"></h4>
+                    <span id="modalVoice" class="member-voice"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 Adana Çokfonik Çoksesli Korosu. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modular Navbar JavaScript -->
+    <script src="js/navbar-loader.js"></script>
+    
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'tr';
+        
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'tr' ? 'en' : 'tr';
+            updateContent();
+            updateLanguageButton();
+        }
+        
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-tr][data-en]');
+            elements.forEach(element => {
+                const text = currentLanguage === 'tr' ? element.getAttribute('data-tr') : element.getAttribute('data-en');
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            document.documentElement.lang = currentLanguage;
+        }
+        
+        function updateLanguageButton() {
+            const button = document.getElementById('languageToggle');
+            button.textContent = currentLanguage === 'tr' ? 'EN' : 'TR';
+        }
+
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const memberCards = document.querySelectorAll('.member-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    memberCards.forEach(card => {
+                        const voice = card.getAttribute('data-voice');
+                        if (filter === 'all' || voice === filter) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeInUp 0.6s ease-out';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Modal functionality
+        function showMember(name, voice, imageSrc) {
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalVoice').textContent = voice;
+            document.getElementById('modalImage').src = imageSrc;
+            
+            // Add voice class to modal voice element
+            const modalVoice = document.getElementById('modalVoice');
+            modalVoice.className = 'member-voice voice-' + voice.toLowerCase();
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

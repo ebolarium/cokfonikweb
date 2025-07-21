@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adana Çokfonik Çoksesli Korosu</title>
+    <meta name="description" content="2012 yılında Adana'da kurulan Çokfonik çok sesli müziği yaygınlaştırmanın yanı sıra, koro kültürünü 7'den 70'e tanıtmayı ve kazandırmayı amaçlamakta">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/gif" href="images/cropped-cok-fonik-logo-4.gif">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Modular Navbar CSS -->
+    <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+    
+    <style>
+        :root {
+            --primary-color: #e08611;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(224, 134, 17, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background-color: rgba(224, 134, 17, 0.15);
+        }
+
+        .language-switcher {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color) !important;
+            font-weight: 600;
+            padding: 0.4rem 1rem !important;
+            border-radius: 25px;
+            margin-left: 1rem;
+        }
+
+        .language-switcher:hover {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+        }
+
+        /* Social Media in Navigation */
+        .navbar-social {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0 20px;
+        }
+
+        .navbar-social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .navbar-social-link:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .navbar-social-link.facebook:hover {
+            background: #3b5998;
+        }
+
+        .navbar-social-link.youtube:hover {
+            background: #ff0000;
+        }
+
+        .navbar-social-link.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(224, 134, 17, 0.9) 0%, rgba(44, 62, 80, 0.8) 100%), url('images/PGM-2025kucuk-1024x576.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            color: var(--white);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(224, 134, 17, 0.3);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .stat-item {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .navbar-nav .nav-link {
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in" data-tr="ÇOKFONIK" data-en="ÇOKFONIK">ÇOKFONIK</h1>
+                <p class="hero-subtitle fade-in" data-tr="Adana Çoksesli Korosu - Herkesin Bir Korosu" data-en="Adana Polyphonic Choir - Everyone's Choir">Adana Çoksesli Korosu - Herkesin Bir Korosu</p>
+                <a href="#about" class="btn btn-primary btn-primary-custom fade-in" data-tr="HAKKIMIZDA" data-en="ABOUT US">HAKKIMIZDA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-tr="HAKKIMIZDA" data-en="ABOUT US">HAKKIMIZDA</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-content fade-in">
+                        <p><strong class="highlight-text">ÇOKFONİK</strong></p>
+                        
+                        <div id="turkish-content">
+                            <p>2012 yılında Adana'da kurulan Çokfonik çok sesli müziği yaygınlaştırmanın yanı sıra, koro kültürünü 7'den 70'e tanıtmayı ve kazandırmayı amaçlamakta, <strong class="highlight-text">"herkesin bir korosu"</strong> olması için çalışmaktadır. Koronun şefliğini Semin Süeda Sirel Çölcü, yardımcı şefliğini ise Ahmet Can Dağlıoğlu yürütmektedir. Her yıl yeni koristlerin katılımı ile büyümekte olup, tamamı farklı meslek gruplarındaki amatör müzik severlerden oluşmaktadır.</p>
+                            
+                            <p>2015 Şubat ayı itibariyle Adana Çokfonik Müzik Derneği adıyla dernekleşme faaliyetlerini tamamlayan Çokfonik, <strong class="highlight-text">Türk Halk Müziğinden Batı Klasiklerine, Poptan Caza</strong> uzanan geniş bir çoksesli düzenleme repertuarına sahiptir.</p>
+                            
+                            <p>Koro kurulduğu günden bu yana Adana ve çevre illerde çeşitli organizasyonlar dahilinde verdiği konserler dışında Nisan'da Adana'da Portakal Çiçeği Karnavalı, 16. 17. 18. ve 19. Nevit Kodallı Çok Sesli Korolar Şenliği, 20. ve 24. ve 26. Türkiye Korolar Şenliği, 1. 2. 3. 4. ve 6. İzmir Polifonik Korolar Festivali, 2015 ve 2019 Çanakkale Korolar Festivali ve 2016 KKTC Uluslararası Korolar Festivali'ne, 2024 2. Kapadokya Korolar Festivali'ne katılmıştır.</p>
+                        </div>
+                        
+                        <div id="english-content" style="display: none;">
+                            <p>Founded in 2012 in Adana, Çokfonik aims not only to promote polyphonic music but also to introduce and instill choral culture to people of all ages working toward the goal that <strong class="highlight-text">"everyone should have a choir."</strong> The choir is conducted by Semin Süeda Sirel Çölcü, with Ahmet Can Dağlıoğlu serving as assistant conductor. Growing each year with the participation of new choristers, the choir is composed entirely of amateur music enthusiasts from various professional backgrounds.</p>
+                            
+                            <p>As of February 2015, Çokfonik completed its formal establishment as the Adana Çokfonik Music Association. It has a diverse polyphonic repertoire ranging from <strong class="highlight-text">Turkish Folk Music to Western Classical Music, and from Pop to Jazz.</strong></p>
+                            
+                            <p>Since its inception, the choir has performed concerts in Adana and surrounding provinces within various organizations. It has participated in events such as the Orange Blossom Carnival in April in Adana, the 16th, 17th, 18th, and 19th Nevit Kodallı Polyphonic Choirs Festival, the 20th, 24th, and 26th Turkish Choirs Festival, the 1st, 2nd, 3rd, 4th, and 6th Izmir Polyphonic Choirs Festival, the 2015 and 2019 Çanakkale Choirs Festivals, the 2016 TRNC International Choirs Festival, and the 2nd Cappadocia Choirs Festival in 2024.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label" data-tr="YIL TECRÜBESİ" data-en="YEARS OF EXPERIENCE">YIL TECRÜBESİ</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label" data-tr="KORİST" data-en="CHOIR MEMBERS">KORİST</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label" data-tr="FESTİVAL" data-en="FESTIVALS">FESTİVAL</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label" data-tr="ÖDÜL" data-en="AWARDS">ÖDÜL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-tr="VİDEO GALERİ" data-en="VIDEO GALLERY">VİDEO GALERİ</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="video-container fade-in">
+                        <iframe src="https://www.youtube.com/embed/tUCpTGPTnIE" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 Adana Çokfonik Çoksesli Korosu. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modular Navbar JavaScript -->
+    <script src="js/navbar-loader.js"></script>
+    
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'tr';
+        
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'tr' ? 'en' : 'tr';
+            updateContent();
+            updateLanguageButton();
+        }
+        
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-tr][data-en]');
+            elements.forEach(element => {
+                const text = currentLanguage === 'tr' ? element.getAttribute('data-tr') : element.getAttribute('data-en');
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            // Toggle content sections
+            const turkishContent = document.getElementById('turkish-content');
+            const englishContent = document.getElementById('english-content');
+            
+            if (currentLanguage === 'tr') {
+                turkishContent.style.display = 'block';
+                englishContent.style.display = 'none';
+                document.documentElement.lang = 'tr';
+            } else {
+                turkishContent.style.display = 'none';
+                englishContent.style.display = 'block';
+                document.documentElement.lang = 'en';
+            }
+        }
+        
+        function updateLanguageButton() {
+            const button = document.getElementById('languageToggle');
+            button.textContent = currentLanguage === 'tr' ? 'EN' : 'TR';
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html> 
