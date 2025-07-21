@@ -4,16 +4,12 @@
   "description": "Adana Çokfonik Çoksesli Korosu Official Website",
   "main": "index.html",
   "scripts": {
-    "start": "node server.js",
     "build": "echo 'Build complete'",
     "dev": "npx http-server . -p 3000"
   },
   "keywords": ["choir", "music", "adana", "cokfonik", "polyphonic"],
   "author": "Çokfonik Team",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2"
-  },
   "engines": {
     "node": "18.x"
   }
