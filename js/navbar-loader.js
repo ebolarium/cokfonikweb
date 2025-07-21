@@ -47,9 +47,9 @@ function loadNavbar() {
                         </a>
                     </div>
                     
-                    <a href="english.html" class="language-switch">
+                    <button id="languageToggle" class="language-switch" onclick="toggleLanguage()" type="button">
                         <i class="fas fa-globe me-2"></i>EN
-                    </a>
+                    </button>
                 </div>
             </div>
         </nav>

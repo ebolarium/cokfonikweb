@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - Adana Çokfonik Çoksesli Korosu</title>
+    <title data-tr="İletişim - Adana Çokfonik Çoksesli Korosu" data-en="Contact - Adana Çokfonik Polyphonic Choir">İletişim - Adana Çokfonik Çoksesli Korosu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -209,8 +209,8 @@
         <!-- Page Header -->
         <section class="page-header">
             <div class="container">
-                <h1 class="fade-in-up">İletişim</h1>
-                <p class="fade-in-up" style="animation-delay: 0.2s;">Koromuza katılmak veya sorularınız için bizimle iletişime geçin</p>
+                <h1 class="fade-in-up" data-tr="İletişim" data-en="Contact">İletişim</h1>
+                <p class="fade-in-up" data-tr="Koromuza katılmak veya sorularınız için bizimle iletişime geçin" data-en="Contact us if you want to join our choir or have any questions" style="animation-delay: 0.2s;">Koromuza katılmak veya sorularınız için bizimle iletişime geçin</p>
             </div>
         </section>
 
@@ -222,7 +222,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="form-card fade-in-up">
-                            <h2 class="form-title">Mesaj Gönder</h2>
+                            <h2 class="form-title" data-tr="Mesaj Gönder" data-en="Send Message">Mesaj Gönder</h2>
                             
                             <div class="success-message" id="successMessage">
                                 <i class="fas fa-check-circle me-2"></i>Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
@@ -303,6 +303,37 @@
     
     <!-- Navbar Loader -->
     <script src="js/navbar-loader.js"></script>
+    
+    <!-- Language switching functionality -->
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'tr';
+        
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'tr' ? 'en' : 'tr';
+            updateContent();
+            updateLanguageButton();
+        }
+        
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-tr][data-en]');
+            elements.forEach(element => {
+                const text = currentLanguage === 'tr' ? element.getAttribute('data-tr') : element.getAttribute('data-en');
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            document.documentElement.lang = currentLanguage;
+        }
+        
+        function updateLanguageButton() {
+            const button = document.getElementById('languageToggle');
+            if (button) {
+                button.textContent = currentLanguage === 'tr' ? 'EN' : 'TR';
+            }
+        }
+    </script>
     
     <!-- Custom JavaScript -->
     <script>
