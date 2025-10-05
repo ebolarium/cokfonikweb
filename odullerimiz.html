@@ -122,36 +122,6 @@
             z-index: 2;
         }
 
-        /* Awards Statistics */
-        .awards-stats {
-            background: var(--white);
-            margin: -40px auto 60px;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--dark-gray);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
 
         /* Timeline */
         .timeline {
@@ -252,34 +222,6 @@
             font-size: 1.5rem;
         }
 
-        /* Awards Summary */
-        .awards-summary {
-            background: linear-gradient(135deg, var(--secondary-color), #34495e);
-            color: var(--white);
-            padding: 80px 0;
-            margin-top: 80px;
-        }
-
-        .summary-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .summary-card h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .summary-card p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.8;
-        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -299,14 +241,6 @@
                 font-size: 1.1rem;
             }
 
-            .awards-stats {
-                margin: -20px 20px 40px;
-                padding: 30px 20px;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-            }
 
             .timeline::before {
                 left: 30px;
@@ -321,6 +255,39 @@
                 margin-left: 70px;
                 padding: 30px 20px;
             }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            color: var(--white);
         }
 
         /* Animation */
@@ -346,41 +313,9 @@
         <section class="page-header">
             <div class="container">
                 <h1 class="fade-in-up" data-tr="Ödüllerimiz" data-en="Our Awards">Ödüllerimiz</h1>
-                <p class="fade-in-up" data-tr="12 yıllık başarı hikayemizde kazandığımız prestijli ödüller" data-en="Prestigious awards we earned in our 12-year success story" style="animation-delay: 0.2s;">12 yıllık başarı hikayemizde kazandığımız prestijli ödüller</p>
-            </div>
+               </div>
         </section>
 
-        <!-- Awards Statistics -->
-        <div class="container">
-            <div class="awards-stats fade-in-up">
-                <div class="row">
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <span class="stat-number">25+</span>
-                            <span class="stat-label" data-tr="Ödül" data-en="Awards">Ödül</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <span class="stat-number">12</span>
-                            <span class="stat-label" data-tr="Yıl" data-en="Years">Yıl</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label" data-tr="Festival" data-en="Festivals">Festival</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-item">
-                            <span class="stat-number">8</span>
-                            <span class="stat-label" data-tr="Şehir" data-en="Cities">Şehir</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Timeline -->
         <section class="timeline">
@@ -503,21 +438,21 @@
             </div>
         </section>
 
-        <!-- Awards Summary -->
-        <section class="awards-summary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="summary-card fade-in-up">
-                            <h3>12 Yıllık Başarı Hikayesi</h3>
-                            <p>2013 yılından bu yana Türkiye'nin prestijli koro festivallerinde aldığımız 25'ten fazla ödül, koromuzun sanatsal mükemmellik arayışının ve müzikal gelişimimizin somut göstergesidir. Müzikalite, sahne hakimiyeti, repertuvar çeşitliliği ve koro-şef uyumu gibi farklı kategorilerde kazandığımız başarılar, hem teknik yetkinliğimizi hem de sanatsal duruşumuzu ortaya koymaktadır.</p>
-                            <p>Her ödül, 40'tan fazla korist ve şefimiz Semin Süeda Sirel Çölcü'nün ortak emeklerinin ve müziğe olan tutkularının meyvesidir.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/CokFonik/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/user/cokfonik" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/cokfonik_koro/" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 Adana Çokfonik Çoksesli Korosu. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -576,44 +511,6 @@
             observer.observe(el);
         });
 
-        // Add counter animation for statistics
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    start = target;
-                    clearInterval(timer);
-                }
-                
-                if (target > 10) {
-                    element.textContent = Math.floor(start) + '+';
-                } else {
-                    element.textContent = Math.floor(start);
-                }
-            }, 16);
-        }
-
-        // Trigger counter animations when stats section comes into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.textContent.replace('+', ''));
-                        animateCounter(counter, target);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.awards-stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
 
         // Add hover effects to timeline items
         document.querySelectorAll('.timeline-content').forEach(item => {

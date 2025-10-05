@@ -168,6 +168,39 @@
             }
         }
 
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+
         /* Animation */
         .fade-in-up {
             opacity: 0;
@@ -210,8 +243,7 @@
         <section class="page-header">
             <div class="container">
                 <h1 class="fade-in-up" data-tr="İletişim" data-en="Contact">İletişim</h1>
-                <p class="fade-in-up" data-tr="Koromuza katılmak veya sorularınız için bizimle iletişime geçin" data-en="Contact us if you want to join our choir or have any questions" style="animation-delay: 0.2s;">Koromuza katılmak veya sorularınız için bizimle iletişime geçin</p>
-            </div>
+                </div>
         </section>
 
 
@@ -297,6 +329,20 @@
 
 
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/CokFonik/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/user/cokfonik" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/cokfonik_koro/" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2024 Adana Çokfonik Çoksesli Korosu. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
