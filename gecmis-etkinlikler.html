@@ -154,214 +154,95 @@
             font-size: 0.9rem;
         }
 
-        /* Video Gallery */
-        .video-gallery {
-            background: var(--light-gray);
-            padding: 80px 0;
-        }
-
-        .video-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .video-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .video-thumbnail {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            background: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-thumbnail iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .play-button:hover {
-            background: var(--accent-color);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .video-info {
-            padding: 20px;
-        }
-
-        .video-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-
-        .video-description {
-            color: var(--dark-gray);
-            font-size: 0.95rem;
-        }
-
-        /* Timeline */
-        .timeline-section {
+        /* Events Table */
+        .events-section {
             padding: 80px 0;
             background: var(--white);
         }
 
-        .timeline {
-            position: relative;
+        .events-table-container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
-            border-radius: 2px;
-        }
-
-        .timeline-year {
-            margin: 80px 0;
-            position: relative;
-        }
-
-        .year-badge {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 15px 25px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            box-shadow: 0 5px 20px rgba(224, 134, 17, 0.3);
-            z-index: 10;
-            top: -25px;
-        }
-
-        .year-events {
-            margin-top: 40px;
-        }
-
-        .event-item {
             background: var(--white);
             border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            border-left: 5px solid;
-            transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
-        .event-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        .events-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
         }
 
-        .event-item.festival {
-            border-left-color: var(--primary-color);
+        .events-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .events-table th:first-child {
+            width: 80px;
+            text-align: center;
+        }
+
+        .events-table th:nth-child(2) {
+            width: auto;
+        }
+
+        .events-table th:nth-child(3) {
+            width: 120px;
+        }
+
+        .events-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            vertical-align: top;
+        }
+
+        .events-table tbody tr:hover {
             background: linear-gradient(135deg, rgba(224, 134, 17, 0.05), rgba(255, 255, 255, 1));
         }
 
-        .event-item.concert {
-            border-left-color: var(--info-color);
-            background: linear-gradient(135deg, rgba(23, 162, 184, 0.05), rgba(255, 255, 255, 1));
+        .events-table tbody tr:last-child td {
+            border-bottom: none;
         }
 
-        .event-item.special {
-            border-left-color: var(--success-color);
-            background: linear-gradient(135deg, rgba(40, 167, 69, 0.05), rgba(255, 255, 255, 1));
+        .year-cell {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 700;
+            text-align: center;
+            border-radius: 20px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
         }
 
-        .event-title {
-            font-size: 1.2rem;
+        .location-cell {
             font-weight: 600;
-            margin-bottom: 10px;
             color: var(--secondary-color);
         }
 
-        .event-location {
+        .event-cell {
             color: var(--dark-gray);
-            font-size: 0.95rem;
-            margin-bottom: 5px;
+            line-height: 1.6;
         }
 
-        .event-description {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .event-award {
+        .award-text {
             background: rgba(40, 167, 69, 0.1);
             color: var(--success-color);
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
             font-weight: 600;
             display: inline-block;
-            margin-top: 10px;
-        }
-
-        .event-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.1rem;
-        }
-
-        .event-icon.festival {
-            background: var(--primary-color);
-        }
-
-        .event-icon.concert {
-            background: var(--info-color);
-        }
-
-        .event-icon.special {
-            background: var(--success-color);
+            margin-top: 5px;
         }
 
         /* Filter Buttons */
@@ -445,21 +326,32 @@
                 font-size: 2.2rem;
             }
 
-            .timeline::before {
-                left: 30px;
+            .events-table-container {
+                margin: 0 20px;
+                border-radius: 10px;
             }
 
-            .year-badge {
-                left: 30px;
-                transform: none;
+            .events-table th,
+            .events-table td {
+                padding: 12px 8px;
+                font-size: 0.9rem;
             }
 
-            .year-events {
-                margin-left: 70px;
+            .events-table th:first-child {
+                width: 60px;
             }
 
-            .event-item {
-                padding: 20px;
+            .events-table th:nth-child(2) {
+                width: auto;
+            }
+
+            .events-table th:nth-child(3) {
+                width: 80px;
+            }
+
+            .year-cell {
+                padding: 6px 8px;
+                font-size: 0.8rem;
             }
         }
 
@@ -515,190 +407,341 @@
             </div>
         </div>
 
-
-        <!-- Timeline Section -->
-        <section class="timeline-section">
+        <!-- Events Section -->
+        <section class="events-section">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="fade-in-up" data-tr="Etkinlik Geçmişi" data-en="Event History">Etkinlik Geçmişi</h2>
                     <p class="fade-in-up text-muted" data-tr="2012'den günümüze uzanan performans yolculuğumuz" data-en="Our performance journey spanning from 2012 to the present">2012'den günümüze uzanan performans yolculuğumuz</p>
                 </div>
 
-                <!-- Filter Buttons -->
-                <div class="filter-buttons fade-in-up">
-                    <button class="filter-btn active" data-filter="all" data-tr="Tümü" data-en="All">Tümü</button>
-                    <button class="filter-btn" data-filter="festival" data-tr="Festivaller" data-en="Festivals">Festivaller</button>
-                    <button class="filter-btn" data-filter="concert" data-tr="Konserler" data-en="Concerts">Konserler</button>
-                    <button class="filter-btn" data-filter="special" data-tr="Özel Etkinlikler" data-en="Special Events">Özel Etkinlikler</button>
-                </div>
-
-                <div class="timeline">
-                    <!-- 2025 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2025</div>
-                        <div class="year-events">
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title" data-tr="Uluslararası Muğla Koralar Şenliği" data-en="International Muğla Choirs Festival">Uluslararası Muğla Koralar Şenliği</div>
-                                <div class="event-location">Muğla</div>
-                                <div class="event-award" data-tr="Tür ve Biçim Özelliklerine Uygun Yapıt Seslendirmede Başarı Ödülü" data-en="Success Award for Appropriate Interpretation of Genre and Style">Tür ve Biçim Özelliklerine Uygun Yapıt Seslendirmede Başarı Ödülü</div>
-                            </div>
-                            <div class="event-item concert" data-category="concert">
-                                <div class="event-title" data-tr="Çokfonik Yaz Konseri" data-en="Çokfonik Summer Concert">Çokfonik Yaz Konseri</div>
-                                <div class="event-location" data-tr="Adana, 01 Burda Performans Gösteri Merkezi" data-en="Adana, 01 Burda Performance Center">Adana, 01 Burda Performans Gösteri Merkezi</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title" data-tr="Portakal Çiçeği Karnavalı" data-en="Orange Blossom Carnival">Portakal Çiçeği Karnavalı</div>
-                                <div class="event-location" data-tr="Adana, Atatürk Parkı ve Müzeler Meydanı" data-en="Adana, Atatürk Park and Museums Square">Adana, Atatürk Parkı ve Müzeler Meydanı</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2024 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2024</div>
-                        <div class="year-events">
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title" data-tr="26. Türkiye Korolar Şenliği" data-en="26th Turkey Choirs Festival">26. Türkiye Korolar Şenliği</div>
-                                <div class="event-location">Ankara</div>
-                                <div class="event-award" data-tr="Repertuvar Çeşitliliği Ödülü" data-en="Repertoire Diversity Award">Repertuvar Çeşitliliği Ödülü</div>
-                            </div>
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">2. Uluslararası Kapadokya Korolar Festivali</div>
-                                <div class="event-location">Kapadokya</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">3. Adana Çocuk ve Gençlik Bienali</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item concert" data-category="concert">
-                                <div class="event-title">KAIZEN Derneği ile Seyhan Çırçır Sanat Merkezi Konseri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2023 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2023</div>
-                        <div class="year-events">
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">6. İzmir Polifonik Korolar Festivali</div>
-                                <div class="event-location">İzmir</div>
-                                <div class="event-award">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</div>
-                                <div class="event-award">Yapıtı Yorumlamada Koro Şef Uyumu Ödülü</div>
-                                <div class="event-award">Sergi Yayınevi Özendirme Ödülleri</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2022 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2022</div>
-                        <div class="year-events">
-                            <div class="event-item concert" data-category="concert">
-                                <div class="event-title">Uğur Okulları Yıl Sonu Konseri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2019 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2019</div>
-                        <div class="year-events">
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">24. Polifonik Korolar Şenliği</div>
-                                <div class="event-location">Ankara</div>
-                                <div class="event-award">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</div>
-                            </div>
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">Çanakkale Uluslararası Korolar Festivali</div>
-                                <div class="event-location">Çanakkale</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">2. Çokfonik Okul Koroları Şenliği</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">21. Devlet Tiyatroları-Sabancı Uluslararası Adana Tiyatro Festivali</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item concert" data-category="concert">
-                                <div class="event-title">4. Çokfonik Bahar Konseri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">3. Uluslararası Adana Lezzet Festivali</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2018 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2018</div>
-                        <div class="year-events">
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">1. Çokfonik Okul Koroları Şenliği</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">4. İzmir Polifonik Koralar Festivali</div>
-                                <div class="event-location">İzmir</div>
-                                <div class="event-award">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</div>
-                            </div>
-                            <div class="event-item concert" data-category="concert">
-                                <div class="event-title">3. Çokfonik Bahar Konseri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">Portakal Çiçeği Karnavalı Sokak Konseri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2017 -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2017</div>
-                        <div class="year-events">
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">5. Sansev Uluslararası Çoksesli Korolar Festivali</div>
-                                <div class="event-location">İstanbul</div>
-                                <div class="event-award">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</div>
-                            </div>
-                            <div class="event-item festival" data-category="festival">
-                                <div class="event-title">3. İzmir Polifonik Korolar Festivali</div>
-                                <div class="event-location">İzmir</div>
-                                <div class="event-award">Sahne Hakimiyeti, Koro Disiplini ve Estetik Görünümde Başarı Ödülü</div>
-                            </div>
-                            <div class="event-item concert" data-category="concert">
-                                <div class="event-title">2. Çokfonik Bahar Konseri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">11. Çukurova Sanat Günleri</div>
-                                <div class="event-location">Adana</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earlier Years Summary -->
-                    <div class="timeline-year fade-in-up">
-                        <div class="year-badge">2012-2016</div>
-                        <div class="year-events">
-                            <div class="event-item special" data-category="special">
-                                <div class="event-title">İlk Yıllar & Kuruluş Dönemi</div>
-                                <div class="event-location">Adana, Mersin, Ankara, İzmir</div>
-                                <div class="event-description">
-                                    Koromuzun kuruluş yıllarında gerçekleştirdiğimiz ilk festivaller, tanışma konserleri, 
-                                    Nevit Kodallı Korolar Şenliği katılımları ve ilk ödüllerimiz. Bu dönemde Çukurova 
-                                    bölgesinde köklü bir koro geleneği oluşturduk.
-                                </div>
-                                <div class="event-award">İlk Başarı Ödülleri</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="events-table-container fade-in-up">
+                    <table class="events-table">
+                        <thead>
+                            <tr>
+                                <th data-tr="Yıl" data-en="Year">Yıl</th>
+                                <th data-tr="Etkinlik" data-en="Event">Etkinlik</th>
+                                <th data-tr="Şehir" data-en="City">Şehir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="year-cell">2025</span></td>
+                                <td class="event-cell">Nisan'da Adana'da Portakal Çiçeği Karnavalı Atatürk Parkı ve Müzeler Meydanı Konserleri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2025</span></td>
+                                <td class="event-cell">Uluslararası Muğla Korolar Şenliği <span class="award-text">Tür ve Biçim Özelliklerine Uygun Yapıt Seslendirmede Başarı Ödülü</span></td>
+                                <td class="location-cell">Muğla</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2025</span></td>
+                                <td class="event-cell">01 Burda Performans Gösteri Merkezi, Çokfonik Yaz Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2024</span></td>
+                                <td class="event-cell">KAIZEN Kültürlerarası İletişim ve Eğitim Araştırmaları Derneği ile Seyhan Çırçır Sanat Merkezi Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2024</span></td>
+                                <td class="event-cell">26. Türkiye Korolar Şenliği <span class="award-text">Repertuvar Çeşitliliği Ödülü</span></td>
+                                <td class="location-cell">Ankara</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2024</span></td>
+                                <td class="event-cell">01 Burda Performans Gösteri Merkezi, Çokfonik Yaz Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2024</span></td>
+                                <td class="event-cell">2. Uluslararası Kapadokya Korolar Festivali</td>
+                                <td class="location-cell">Kapadokya</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2024</span></td>
+                                <td class="event-cell">3. Adana Çocuk ve Gençlik Bienali Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2023</span></td>
+                                <td class="event-cell">6. İzmir Polifonik Korolar Festivali <span class="award-text">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü, Yapıtı Yorumlamada Koro Şef Uyumu Ödülü, Sergi Yayınevi Özendirme Ödülleri</span></td>
+                                <td class="location-cell">İzmir</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2022</span></td>
+                                <td class="event-cell">Uğur Okulları Yıl Sonu Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">2. Çokfonik Okul Koroları Şenliği</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">21. Devlet Tiyatroları-Sabancı Uluslararası Adana Tiyatro Festivali</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">4. Çokfonik Bahar Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">Tarsus Amerikan Koleji "Homecoming" etkinliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">Türkiye 24. Polifonik Korolar Şenliği <span class="award-text">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</span></td>
+                                <td class="location-cell">Ankara</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">Çanakkale Uluslararası Korolar Festivali</td>
+                                <td class="location-cell">Çanakkale</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">3. Uluslararası Adana Lezzet Festivali</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2019</span></td>
+                                <td class="event-cell">75. Yıl Sanat Galerisi Sevinç Kökenler Sombahar Seçkisi Mini Konser</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">1. Çokfonik Okul Koroları Şenliği</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">3. Çokfonik Bahar Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">Portakal Çiçeği Karnavalı Sokak Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">19. Nevit Kodallı Korolar Şenliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">Tarsus Amerikan Koleji "Homecoming" Etkinliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">4. İzmir Polifonik Korolar Festivali <span class="award-text">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</span></td>
+                                <td class="location-cell">İzmir</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2018</span></td>
+                                <td class="event-cell">Masis Aram Gözbek Yönetiminde Adana Çocuk Sanat Bienali Kapanış Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">Masis Aram Gözbek Koro Atölyesi ve Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">11. Çukurova Sanat Günleri Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">Çokfonik 2. Bahar Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">Tarsus Amerikan Koleji "Homecoming" Etkinliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">5. Sansev Uluslararası Çoksesli Korolar Festivali <span class="award-text">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</span></td>
+                                <td class="location-cell">İstanbul</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">18. Nevit Kodallı Korolar Şenliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2017</span></td>
+                                <td class="event-cell">3. İzmir Polifonik Korolar Festivali <span class="award-text">Sahne Hakimiyeti, Koro Disiplini ve Estetik Görünümde Başarı Ödülü</span></td>
+                                <td class="location-cell">İzmir</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">17. Nevit Kodallı Korolar Şenliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">Seyhan Belediyesi Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">Botaş Spor Kulübü Sosyal Sorumluluk Projesi Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">Çokfonik 1. Bahar Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">10. Uluslararası Çukurova Sanat Günleri Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">Engelli Çocuklar Yararına Yapılan Defile Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">2. İzmir Polifonik Korolar Festivali</td>
+                                <td class="location-cell">İzmir</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">2. Uluslararası Kuzey Kıbrıs Türk Cumhuriyeti Korolar Festivali</td>
+                                <td class="location-cell">KKTC</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">Şaymana Müzik Festivali</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2016</span></td>
+                                <td class="event-cell">30 Ağustos Zafer Bayramı Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Seyhan Belediyesi "8 Mart Dünya Kadınlar Günü Anma Programı"</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Nisan'da Adana'da Portakal Çiçeği Karnavalı</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">16. Nevit Kodallı Korolar Şenliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Okyanus Koleji Bahar Şenliği</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Çukurova Üniversitesi Bahar Şenliği</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Türkiye Polifonik Korolar Şenliği <span class="award-text">Halk Müziği Yorumlamada Başarı Ödülü</span></td>
+                                <td class="location-cell">Ankara</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">1. İzmir Polifonik Korolar Şenliği <span class="award-text">Müzikalite ve Müzikal Dinamiklerde Başarı Ödülü</span></td>
+                                <td class="location-cell">İzmir</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Çanakkale Korolar Festival</td>
+                                <td class="location-cell">Çanakkale</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Tarsus Amerikan Koleji Konseri</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Türkiye Romatoloji Kongresi Kapanış Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2015</span></td>
+                                <td class="event-cell">Forum AVM Yıl Başı Etkinliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2014</span></td>
+                                <td class="event-cell">Payas Sokullu Mehmet Paşa Külliyesi, Mimar Sinan Yılı Kutlamaları</td>
+                                <td class="location-cell">Hatay</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2014</span></td>
+                                <td class="event-cell">Adana Ekinfen Okulları Sonbahar Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2014</span></td>
+                                <td class="event-cell">Nisan'da Adana'da Portakal Çiçeği Karnavalı</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2014</span></td>
+                                <td class="event-cell">Mersin Katolik Kilisesi Konseri</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2013</span></td>
+                                <td class="event-cell">Türkiye Polifonik Korolar Şenliği <span class="award-text">Koro Şef Uyum Ödülü, Çanakkale Onsekiz Mart Üniversitesi Özendirme Ödülü</span></td>
+                                <td class="location-cell">Ankara</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2013</span></td>
+                                <td class="event-cell">14. Nevit Kodallı Polifonik Korolar Şenliği</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2013</span></td>
+                                <td class="event-cell">Türkiye Romatoloji Kongresi Kapanış Konseri</td>
+                                <td class="location-cell">Mersin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2013</span></td>
+                                <td class="event-cell">Adana Ekinfen Okulları Bahar Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2013</span></td>
+                                <td class="event-cell">Ç.Ü. Güzel Sanatlar Fakültesi Mezuniyet Töreni Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                            <tr>
+                                <td><span class="year-cell">2012</span></td>
+                                <td class="event-cell">Tarihi Kız Lisesi Tanışma Konseri</td>
+                                <td class="location-cell">Adana</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -784,40 +827,18 @@
             observer.observe(el);
         });
 
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const eventItems = document.querySelectorAll('.event-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                const filterValue = button.getAttribute('data-filter');
-
-                eventItems.forEach(item => {
-                    if (filterValue === 'all') {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateX(0)';
-                        }, 100);
-                    } else if (item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateX(0)';
-                        }, 100);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateX(-20px)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
-                });
+        // Table row hover effects
+        const tableRows = document.querySelectorAll('.events-table tbody tr');
+        
+        tableRows.forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+                this.style.boxShadow = '0 5px 15px rgba(224, 134, 17, 0.2)';
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.boxShadow = 'none';
             });
         });
 
@@ -860,34 +881,6 @@
             statsObserver.observe(statsSection);
         }
 
-        // Add hover effects to timeline items
-        document.querySelectorAll('.event-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateX(15px)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateX(0)';
-            });
-        });
-
-        // Video iframe lazy loading
-        document.querySelectorAll('.video-card').forEach(card => {
-            const iframe = card.querySelector('iframe');
-            const src = iframe.src;
-            iframe.src = '';
-            
-            const videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        iframe.src = src;
-                        videoObserver.unobserve(entry.target);
-                    }
-                });
-            });
-            
-            videoObserver.observe(card);
-        });
 
         // Mobile navigation improvements
         const navbarToggler = document.querySelector('.navbar-toggler');
@@ -900,4 +893,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
